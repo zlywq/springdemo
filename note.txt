@@ -1,0 +1,27 @@
+目前是一个最简单的例子。
+在spring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64里面开发调试通过。
+spring的web项目在maven的支持下分成了4个项目。
+    一个通用lib，不含spring的任何东西。不会引用其他项目。
+    一个含有对spring的任何东西的调用或引用的lib，设想的层级是从dao到service层。可以引用其他的lib项目。
+    一个spring的web项目，含有web所特有的controller层。
+    一个spring的desk项目，备用，比如在单元测试外再给出一种执行方式，可以在调试或测试时使用。
+    设想中web项目和desk项目都是顶层项目，不会被其他项目所引用。
+
+目前暂时决定让顶层的pom.xml包含尽可能多的<dependency>，这样可以简化其他module中的pom.xml。
+
+在sts的环境中先建立smmpTop的maven的pom工程，然后点中这个工程，选new .. project，以maven project的方式new出smmpLibCommon,smmpLibSpr,smmpDesk，以spring maven web project的方式new出smmpWeb，并注意生成并添加到Working Set。
+    之所以各个project或artifactId都使用smmp的前缀，是为了让这些project在eclipse的项目区中能够紧靠在一起，而且似乎artifactId就决定了project的名字(比如pom.xml中的<name>就不能影响project的名字)。
+        不过后来发现项目区可以切换成以Working Set为顶级区域显示，倒是不必要这个前缀了。
+    注意各个pom.xml的改动还得靠手工在文本编辑器中改动，不能靠点鼠标操作的功能向导来做，比如top的pom.xml的<module>还得自行添加。
+    在pom.xml中添加依赖关系，ide环境看来能够马上感知。
+
+目前各个项目里面各放了一个很简单的类，来体现项目间的依赖调用关系。
+在ide中调试web项目时会遇到一点问题。
+    web项目中引用调用了各个lib的类，在编译时没有问题。但在ide中调试运行时执行到web项目中对其他lib的类有引用调用的类时，有时会报classNotFound的错。
+        后来发现的一种解决办法是稍微改改最顶层的pom.xml里面的东西，此时似乎会导致某些动作的执行或更新，然后在ide中调试运行就正常了。
+
+
+
+
+
+
