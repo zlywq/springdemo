@@ -2,8 +2,10 @@
 因为这里没有特意支持markdown格式，不一定同步更新。
 
 目前是一个最简单的例子。
-关键词: spring4 + spring security4 + mybatis3 + spring mvc
+关键词: spring4 + spring security4 + mybatis3 + spring mvc + junit4 , maven
 在spring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64里面开发调试通过。一些环境是jdk1.7.0_75, apache-tomcat-7.0.63.
+在sts中可以以import -- existing maven project的方式导进来。
+    注意某些project或module下面没有 src/test/java , src/test/resources ，建议在import..maven..project的时候先建立这些目录，不然还得在eclipse中配置一阵。
 
 spring的web项目在maven的支持下分成了4个项目。
     一个通用lib，不含spring的任何东西。不会引用其他项目。
@@ -24,6 +26,7 @@ spring的web项目在maven的支持下分成了4个项目。
 在ide中调试web项目时会遇到一点问题。
     web项目中引用调用了各个lib的类，在编译时没有问题。但在ide中调试运行时执行到web项目中对其他lib的类有引用调用的类时，有时会报classNotFound的错。
         后来发现的一种解决办法是稍微改改最顶层的pom.xml里面的东西，此时似乎会导致某些动作的执行或更新，然后在ide中调试运行就正常了。
+
 
 
 
@@ -71,6 +74,7 @@ spring 与其他模块整合
 	  <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
 
+注意支持@Service,@Autowired等的关键配置语句是<context:component-scan base-package="pkg1,pkg2" />
 
 
 与spring security整合
@@ -112,6 +116,8 @@ spring 与其他模块整合
 另外，这里的log机制使用的是slf4j+logback。
 
 
+与junit整合
+    参考smmpLibSpr里面的TestPost.java所涉及的东西。
 
 
 
