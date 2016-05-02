@@ -1,49 +1,51 @@
-Ä¿Ç°ÊÇÒ»¸ö×î¼òµ¥µÄÀý×Ó¡£
-¹Ø¼ü´Ê: spring4 + spring security4 + mybatis3 + spring mvc
-ÔÚspring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64ÀïÃæ¿ª·¢µ÷ÊÔÍ¨¹ý¡£Ò»Ð©»·¾³ÊÇjdk1.7.0_75, apache-tomcat-7.0.63.
+ç›®å‰æ˜¯ä¸€ä¸ªæœ€ç®€å•çš„ä¾‹å­ã€‚
+å…³é”®è¯: spring4 + spring security4 + mybatis3 + spring mvc
+åœ¨spring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64é‡Œé¢å¼€å‘è°ƒè¯•é€šè¿‡ã€‚ä¸€äº›çŽ¯å¢ƒæ˜¯jdk1.7.0_75, apache-tomcat-7.0.63.
+åœ¨stsä¸­å¯ä»¥ä»¥import -- existing maven projectçš„æ–¹å¼å¯¼è¿›æ¥ã€‚
 
-springµÄwebÏîÄ¿ÔÚmavenµÄÖ§³ÖÏÂ·Ö³ÉÁË4¸öÏîÄ¿¡£
-    Ò»¸öÍ¨ÓÃlib£¬²»º¬springµÄÈÎºÎ¶«Î÷¡£²»»áÒýÓÃÆäËûÏîÄ¿¡£
-    Ò»¸öº¬ÓÐ¶ÔspringµÄÈÎºÎ¶«Î÷µÄµ÷ÓÃ»òÒýÓÃµÄlib£¬ÉèÏëµÄ²ã¼¶ÊÇ´Ódaoµ½service²ã¡£¿ÉÒÔÒýÓÃÆäËûµÄlibÏîÄ¿¡£
-    Ò»¸öspringµÄwebÏîÄ¿£¬º¬ÓÐwebËùÌØÓÐµÄcontroller²ã¡£
-    Ò»¸öspringµÄdeskÏîÄ¿£¬±¸ÓÃ£¬±ÈÈçÔÚµ¥Ôª²âÊÔÍâÔÙ¸ø³öÒ»ÖÖÖ´ÐÐ·½Ê½£¬¿ÉÒÔÔÚµ÷ÊÔ»ò²âÊÔÊ±Ê¹ÓÃ¡£
-    ÉèÏëÖÐwebÏîÄ¿ºÍdeskÏîÄ¿¶¼ÊÇ¶¥²ãÏîÄ¿£¬²»»á±»ÆäËûÏîÄ¿ËùÒýÓÃ¡£
+springçš„webé¡¹ç›®åœ¨mavençš„æ”¯æŒä¸‹åˆ†æˆäº†4ä¸ªé¡¹ç›®ã€‚
+    ä¸€ä¸ªé€šç”¨libï¼Œä¸å«springçš„ä»»ä½•ä¸œè¥¿ã€‚ä¸ä¼šå¼•ç”¨å…¶ä»–é¡¹ç›®ã€‚
+    ä¸€ä¸ªå«æœ‰å¯¹springçš„ä»»ä½•ä¸œè¥¿çš„è°ƒç”¨æˆ–å¼•ç”¨çš„libï¼Œè®¾æƒ³çš„å±‚çº§æ˜¯ä»Ždaoåˆ°serviceå±‚ã€‚å¯ä»¥å¼•ç”¨å…¶ä»–çš„libé¡¹ç›®ã€‚
+    ä¸€ä¸ªspringçš„webé¡¹ç›®ï¼Œå«æœ‰webæ‰€ç‰¹æœ‰çš„controllerå±‚ã€‚
+    ä¸€ä¸ªspringçš„deské¡¹ç›®ï¼Œå¤‡ç”¨ï¼Œæ¯”å¦‚åœ¨å•å…ƒæµ‹è¯•å¤–å†ç»™å‡ºä¸€ç§æ‰§è¡Œæ–¹å¼ï¼Œå¯ä»¥åœ¨è°ƒè¯•æˆ–æµ‹è¯•æ—¶ä½¿ç”¨ã€‚
+    è®¾æƒ³ä¸­webé¡¹ç›®å’Œdeské¡¹ç›®éƒ½æ˜¯é¡¶å±‚é¡¹ç›®ï¼Œä¸ä¼šè¢«å…¶ä»–é¡¹ç›®æ‰€å¼•ç”¨ã€‚
 
-Ä¿Ç°ÔÝÊ±¾ö¶¨ÈÃ¶¥²ãµÄpom.xml°üº¬¾¡¿ÉÄÜ¶àµÄ<dependency>£¬ÕâÑù¿ÉÒÔ¼ò»¯ÆäËûmoduleÖÐµÄpom.xml¡£
+ç›®å‰æš‚æ—¶å†³å®šè®©é¡¶å±‚çš„pom.xmlåŒ…å«å°½å¯èƒ½å¤šçš„<dependency>ï¼Œè¿™æ ·å¯ä»¥ç®€åŒ–å…¶ä»–moduleä¸­çš„pom.xmlã€‚
 
-ÔÚstsµÄ»·¾³ÖÐÏÈ½¨Á¢smmpTopµÄmavenµÄpom¹¤³Ì£¬È»ºóµãÖÐÕâ¸ö¹¤³Ì£¬Ñ¡new .. project£¬ÒÔmaven projectµÄ·½Ê½new³ösmmpLibCommon,smmpLibSpr,smmpDesk£¬ÒÔspring maven web projectµÄ·½Ê½new³ösmmpWeb£¬²¢×¢ÒâÉú³É²¢Ìí¼Óµ½Working Set¡£
-    Ö®ËùÒÔ¸÷¸öproject»òartifactId¶¼Ê¹ÓÃsmmpµÄÇ°×º£¬ÊÇÎªÁËÈÃÕâÐ©projectÔÚeclipseµÄÏîÄ¿ÇøÖÐÄÜ¹»½ô¿¿ÔÚÒ»Æð£¬¶øÇÒËÆºõartifactId¾Í¾ö¶¨ÁËprojectµÄÃû×Ö(±ÈÈçpom.xmlÖÐµÄ<name>¾Í²»ÄÜÓ°ÏìprojectµÄÃû×Ö)¡£
-        ²»¹ýºóÀ´·¢ÏÖÏîÄ¿Çø¿ÉÒÔÇÐ»»³ÉÒÔWorking SetÎª¶¥¼¶ÇøÓòÏÔÊ¾£¬µ¹ÊÇ²»±ØÒªÕâ¸öÇ°×ºÁË¡£
-    ×¢Òâ¸÷¸öpom.xmlµÄ¸Ä¶¯»¹µÃ¿¿ÊÖ¹¤ÔÚÎÄ±¾±à¼­Æ÷ÖÐ¸Ä¶¯£¬²»ÄÜ¿¿µãÊó±ê²Ù×÷µÄ¹¦ÄÜÏòµ¼À´×ö£¬±ÈÈçtopµÄpom.xmlµÄ<module>»¹µÃ×ÔÐÐÌí¼Ó¡£
-    ÔÚpom.xmlÖÐÌí¼ÓÒÀÀµ¹ØÏµ£¬ide»·¾³¿´À´ÄÜ¹»ÂíÉÏ¸ÐÖª¡£
+åœ¨stsçš„çŽ¯å¢ƒä¸­å…ˆå»ºç«‹smmpTopçš„mavençš„pomå·¥ç¨‹ï¼Œç„¶åŽç‚¹ä¸­è¿™ä¸ªå·¥ç¨‹ï¼Œé€‰new .. projectï¼Œä»¥maven projectçš„æ–¹å¼newå‡ºsmmpLibCommon,smmpLibSpr,smmpDeskï¼Œä»¥spring maven web projectçš„æ–¹å¼newå‡ºsmmpWebï¼Œå¹¶æ³¨æ„ç”Ÿæˆå¹¶æ·»åŠ åˆ°Working Setã€‚
+    ä¹‹æ‰€ä»¥å„ä¸ªprojectæˆ–artifactIdéƒ½ä½¿ç”¨smmpçš„å‰ç¼€ï¼Œæ˜¯ä¸ºäº†è®©è¿™äº›projectåœ¨eclipseçš„é¡¹ç›®åŒºä¸­èƒ½å¤Ÿç´§é åœ¨ä¸€èµ·ï¼Œè€Œä¸”ä¼¼ä¹ŽartifactIdå°±å†³å®šäº†projectçš„åå­—(æ¯”å¦‚pom.xmlä¸­çš„<name>å°±ä¸èƒ½å½±å“projectçš„åå­—)ã€‚
+        ä¸è¿‡åŽæ¥å‘çŽ°é¡¹ç›®åŒºå¯ä»¥åˆ‡æ¢æˆä»¥Working Setä¸ºé¡¶çº§åŒºåŸŸæ˜¾ç¤ºï¼Œå€’æ˜¯ä¸å¿…è¦è¿™ä¸ªå‰ç¼€äº†ã€‚
+    æ³¨æ„å„ä¸ªpom.xmlçš„æ”¹åŠ¨è¿˜å¾—é æ‰‹å·¥åœ¨æ–‡æœ¬ç¼–è¾‘å™¨ä¸­æ”¹åŠ¨ï¼Œä¸èƒ½é ç‚¹é¼ æ ‡æ“ä½œçš„åŠŸèƒ½å‘å¯¼æ¥åšï¼Œæ¯”å¦‚topçš„pom.xmlçš„<module>è¿˜å¾—è‡ªè¡Œæ·»åŠ ã€‚
+    åœ¨pom.xmlä¸­æ·»åŠ ä¾èµ–å…³ç³»ï¼ŒideçŽ¯å¢ƒçœ‹æ¥èƒ½å¤Ÿé©¬ä¸Šæ„ŸçŸ¥ã€‚
 
-Ä¿Ç°¸÷¸öÏîÄ¿ÀïÃæ¸÷·ÅÁËÒ»¸öºÜ¼òµ¥µÄÀà£¬À´ÌåÏÖÏîÄ¿¼äµÄÒÀÀµµ÷ÓÃ¹ØÏµ¡£
-ÔÚideÖÐµ÷ÊÔwebÏîÄ¿Ê±»áÓöµ½Ò»µãÎÊÌâ¡£
-    webÏîÄ¿ÖÐÒýÓÃµ÷ÓÃÁË¸÷¸ölibµÄÀà£¬ÔÚ±àÒëÊ±Ã»ÓÐÎÊÌâ¡£µ«ÔÚideÖÐµ÷ÊÔÔËÐÐÊ±Ö´ÐÐµ½webÏîÄ¿ÖÐ¶ÔÆäËûlibµÄÀàÓÐÒýÓÃµ÷ÓÃµÄÀàÊ±£¬ÓÐÊ±»á±¨classNotFoundµÄ´í¡£
-        ºóÀ´·¢ÏÖµÄÒ»ÖÖ½â¾ö°ì·¨ÊÇÉÔÎ¢¸Ä¸Ä×î¶¥²ãµÄpom.xmlÀïÃæµÄ¶«Î÷£¬´ËÊ±ËÆºõ»áµ¼ÖÂÄ³Ð©¶¯×÷µÄÖ´ÐÐ»ò¸üÐÂ£¬È»ºóÔÚideÖÐµ÷ÊÔÔËÐÐ¾ÍÕý³£ÁË¡£
-
-
+ç›®å‰å„ä¸ªé¡¹ç›®é‡Œé¢å„æ”¾äº†ä¸€ä¸ªå¾ˆç®€å•çš„ç±»ï¼Œæ¥ä½“çŽ°é¡¹ç›®é—´çš„ä¾èµ–è°ƒç”¨å…³ç³»ã€‚
+åœ¨ideä¸­è°ƒè¯•webé¡¹ç›®æ—¶ä¼šé‡åˆ°ä¸€ç‚¹é—®é¢˜ã€‚
+    webé¡¹ç›®ä¸­å¼•ç”¨è°ƒç”¨äº†å„ä¸ªlibçš„ç±»ï¼Œåœ¨ç¼–è¯‘æ—¶æ²¡æœ‰é—®é¢˜ã€‚ä½†åœ¨ideä¸­è°ƒè¯•è¿è¡Œæ—¶æ‰§è¡Œåˆ°webé¡¹ç›®ä¸­å¯¹å…¶ä»–libçš„ç±»æœ‰å¼•ç”¨è°ƒç”¨çš„ç±»æ—¶ï¼Œæœ‰æ—¶ä¼šæŠ¥classNotFoundçš„é”™ã€‚
+        åŽæ¥å‘çŽ°çš„ä¸€ç§è§£å†³åŠžæ³•æ˜¯ç¨å¾®æ”¹æ”¹æœ€é¡¶å±‚çš„pom.xmlé‡Œé¢çš„ä¸œè¥¿ï¼Œæ­¤æ—¶ä¼¼ä¹Žä¼šå¯¼è‡´æŸäº›åŠ¨ä½œçš„æ‰§è¡Œæˆ–æ›´æ–°ï¼Œç„¶åŽåœ¨ideä¸­è°ƒè¯•è¿è¡Œå°±æ­£å¸¸äº†ã€‚
 
 
-spring ÓëÆäËûÄ£¿éÕûºÏ
-    ÔÚweb.xmlÖÐÓÐÁ½´¦µØ·½¿ÉÒÔ¼ÓÔØspringµÄÅäÖÃÎÄ¼þ£¬±ÈÈç<context-param>ºÍ<servlet>£¬µ«ÊÇÔÚ<servlet>ÖÐ¼ÓÔØ£¬»áÓöµ½Ò»Ð©¿Ó£¬±ÈÈçµ¼ÖÂ@serviceµÄÀàµÄÊÂÎñÊ§Ð§¡£
-        ËùÒÔÄ¿Ç°¾ö¶¨Ö»Ê¹ÓÃÒ»´¦£¬¼´<context-param>¡£¶ø<servlet>¼ÓÔØµÄÄÇ¸öÎÄ¼þ²»·ÅÊµ¼ÊÄÚÈÝ¡£Èç
+
+
+
+spring ä¸Žå…¶ä»–æ¨¡å—æ•´åˆ
+    åœ¨web.xmlä¸­æœ‰ä¸¤å¤„åœ°æ–¹å¯ä»¥åŠ è½½springçš„é…ç½®æ–‡ä»¶ï¼Œæ¯”å¦‚<context-param>å’Œ<servlet>ï¼Œä½†æ˜¯åœ¨<servlet>ä¸­åŠ è½½ï¼Œä¼šé‡åˆ°ä¸€äº›å‘ï¼Œæ¯”å¦‚å¯¼è‡´@serviceçš„ç±»çš„äº‹åŠ¡å¤±æ•ˆã€‚
+        æ‰€ä»¥ç›®å‰å†³å®šåªä½¿ç”¨ä¸€å¤„ï¼Œå³<context-param>ã€‚è€Œ<servlet>åŠ è½½çš„é‚£ä¸ªæ–‡ä»¶ä¸æ”¾å®žé™…å†…å®¹ã€‚å¦‚
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/root-context.xml</param-value>
     </context-param>
-    ¼ÓÔØspringµÄÎÄ¼þ£¬¿ÉÒÔÀûÓÃ<import>À´·ÖÄ£¿é¡£
+    åŠ è½½springçš„æ–‡ä»¶ï¼Œå¯ä»¥åˆ©ç”¨<import>æ¥åˆ†æ¨¡å—ã€‚
 
-Óëibatis-mybatisÕûºÏ
-    ²Î¿¼spring-backend.xml¡£
-    ÆäÖÐÒ»Ð©dbÃû£¬ÕËºÅÃÜÂë±»ÌáÈ¡µ½ÁËÒ»¸öµ¥¶ÀµÄdbconnect.propertiesÎÄ¼þÖÐ£¬ÕâÑù·½±ãÎ¬»¤¡£
-    ÔÚspringÅäÖÃÎÄ¼þÖÐ£¬ÓÃÈçÏÂ·½Ê½¼ÓÔØ
+ä¸Žibatis-mybatisæ•´åˆ
+    å‚è€ƒspring-backend.xmlã€‚
+    å…¶ä¸­ä¸€äº›dbåï¼Œè´¦å·å¯†ç è¢«æå–åˆ°äº†ä¸€ä¸ªå•ç‹¬çš„dbconnect.propertiesæ–‡ä»¶ä¸­ï¼Œè¿™æ ·æ–¹ä¾¿ç»´æŠ¤ã€‚
+    åœ¨springé…ç½®æ–‡ä»¶ä¸­ï¼Œç”¨å¦‚ä¸‹æ–¹å¼åŠ è½½
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <value>classpath:dbconnect.properties</value>
         </property>
     </bean>
-    È»ºóÒÔ"${key}"µÄÐÎÊ½Ê¹ÓÃ£¬ÈçÏÂ
+    ç„¶åŽä»¥"${key}"çš„å½¢å¼ä½¿ç”¨ï¼Œå¦‚ä¸‹
     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${database.driver}" />
         <property name="url" value="${database.url}" />
@@ -53,13 +55,13 @@ spring ÓëÆäËûÄ£¿éÕûºÏ
         <property name="validationQuery" value="SELECT 1"></property>
         <property name="testOnBorrow" value="true"></property>
     </bean>
-    Ä¿Ç°µÄÕûºÏ£¬³ýÁËÅäÖÃÁËdataSource£¬ÆäËûµÄÅäÖÃÈçÏÂ
+    ç›®å‰çš„æ•´åˆï¼Œé™¤äº†é…ç½®äº†dataSourceï¼Œå…¶ä»–çš„é…ç½®å¦‚ä¸‹
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />        
-        <property name="mapperLocations" value="classpath*:mappers/**/*.xml" /> <!-- Ò²¿ÉÓÃÏÂÃæscanµÄ·½Ê½ -->
+        <property name="mapperLocations" value="classpath*:mappers/**/*.xml" /> <!-- ä¹Ÿå¯ç”¨ä¸‹é¢scançš„æ–¹å¼ -->
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="spr2.ibatisMapper" />
@@ -70,8 +72,8 @@ spring ÓëÆäËûÄ£¿éÕûºÏ
 
 
 
-Óëspring securityÕûºÏ
-    ×¢ÒâÐèÒªÔÚweb.xmlÖÐ¼Ó
+ä¸Žspring securityæ•´åˆ
+    æ³¨æ„éœ€è¦åœ¨web.xmlä¸­åŠ 
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -80,12 +82,12 @@ spring ÓëÆäËûÄ£¿éÕûºÏ
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-    ÆäËû¾ÍÊÇÉèÖÃ<http>µÈµÄÅäÖÃÁË£¬¿ÉÒÔÐ´ÔÚÒ»¸ö¶ÀÁ¢µÄspring-security.xmlÄ£¿éÎÄ¼þÀï¡£
-        ×¢ÒâÆäÖÐÈç¹ûÏë×Ô¶¨ÒåÒ»Ð©¶«Î÷£¬¾¡Á¿Ê¹ÓÃÏ¸Á£¶ÈÔªËØ¸øµÄÀ©Õ¹£¬±ÈÈç<form-login>ÖÐµÄauthentication-success-handler-refÖ®ÀàµÄ£¬¶ø²»ÒªÌæ´ú<form-login>Õâ¸öÁ£¶È£¬ÒòÎªÕâ¸öbeanµÄÄ³Ð©ÉèÖÃÊÇÄÑÓÚÓÃxmlÅäÖÃÀ´Ìæ´úÒÑÓÐµÄ´úÂëÅäÖÃµÄ£¬¸ú×Ù°ëÌì´úÂë¶¼²»Ò»¶¨³¹µ×¸ãÃ÷°×¡£
+    å…¶ä»–å°±æ˜¯è®¾ç½®<http>ç­‰çš„é…ç½®äº†ï¼Œå¯ä»¥å†™åœ¨ä¸€ä¸ªç‹¬ç«‹çš„spring-security.xmlæ¨¡å—æ–‡ä»¶é‡Œã€‚
+        æ³¨æ„å…¶ä¸­å¦‚æžœæƒ³è‡ªå®šä¹‰ä¸€äº›ä¸œè¥¿ï¼Œå°½é‡ä½¿ç”¨ç»†ç²’åº¦å…ƒç´ ç»™çš„æ‰©å±•ï¼Œæ¯”å¦‚<form-login>ä¸­çš„authentication-success-handler-refä¹‹ç±»çš„ï¼Œè€Œä¸è¦æ›¿ä»£<form-login>è¿™ä¸ªç²’åº¦ï¼Œå› ä¸ºè¿™ä¸ªbeançš„æŸäº›è®¾ç½®æ˜¯éš¾äºŽç”¨xmlé…ç½®æ¥æ›¿ä»£å·²æœ‰çš„ä»£ç é…ç½®çš„ï¼Œè·Ÿè¸ªåŠå¤©ä»£ç éƒ½ä¸ä¸€å®šå½»åº•æžæ˜Žç™½ã€‚
 
-¹ØÓÚspring mvc
-    ¹ØÓÚÒ³ÃæµÄÖÐÎÄÖ§³Ö£¬´ó¸ÅÒªÉèÖÃÁ½¸öµØ·½¡£
-        Ò»¸öÊÇweb.xmlÖÐµÄ
+å…³äºŽspring mvc
+    å…³äºŽé¡µé¢çš„ä¸­æ–‡æ”¯æŒï¼Œå¤§æ¦‚è¦è®¾ç½®ä¸¤ä¸ªåœ°æ–¹ã€‚
+        ä¸€ä¸ªæ˜¯web.xmlä¸­çš„
 	<filter>  
 	    <filter-name>encodingFilter</filter-name>  
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
@@ -98,15 +100,15 @@ spring ÓëÆäËûÄ£¿éÕûºÏ
 	       <param-value>true</param-value>  
 	    </init-param>  
 	</filter>
-	Ò»¸öÊÇ.jspÖÐµÄ
+	ä¸€ä¸ªæ˜¯.jspä¸­çš„
 	<%@ page pageEncoding="UTF-8" language="java" contentType="text/html; charset=UTF-8" %>
-    ÔÚÄ£¿é×éÖ¯ÉÏÊ¹ÓÃÁËÒ»¸öinclude.jsp£¬°üº¬¸÷¸ötaglib¡£
-        ÆäÖÐÊ¹ÓÃÁËÒ»¸ö×Ô¶¨ÒåµÄtaglib£¬ÊÇ <%@ taglib prefix="mytld" uri="/WEB-INF/jstlTld/jstl.tld" %> ¡£
-    ËùÓÐÓëwebÏà¹ØµÄÅäÖÃÔÚspring-front.xmlÖÐ
-        ÆäÖÐ×¢Òâ org.springframework.web.servlet.view.InternalResourceViewResolver µÄprefixµÄÉèÖÃÒª¶ÔÓ¦µ½Êµ¼ÊµÄÄ¿Â¼Â·¾¶¡£
-	ÕâÀïÒÑ¾­¶ÔhtmlºÍjsonµÄ³ÊÏÖ×öÁËÖ§³Ö£¬xml»¹Ö§³ÖµÃ²»ºÃ¡£
+    åœ¨æ¨¡å—ç»„ç»‡ä¸Šä½¿ç”¨äº†ä¸€ä¸ªinclude.jspï¼ŒåŒ…å«å„ä¸ªtaglibã€‚
+        å…¶ä¸­ä½¿ç”¨äº†ä¸€ä¸ªè‡ªå®šä¹‰çš„taglibï¼Œæ˜¯ <%@ taglib prefix="mytld" uri="/WEB-INF/jstlTld/jstl.tld" %> ã€‚
+    æ‰€æœ‰ä¸Žwebç›¸å…³çš„é…ç½®åœ¨spring-front.xmlä¸­
+        å…¶ä¸­æ³¨æ„ org.springframework.web.servlet.view.InternalResourceViewResolver çš„prefixçš„è®¾ç½®è¦å¯¹åº”åˆ°å®žé™…çš„ç›®å½•è·¯å¾„ã€‚
+	è¿™é‡Œå·²ç»å¯¹htmlå’Œjsonçš„å‘ˆçŽ°åšäº†æ”¯æŒï¼Œxmlè¿˜æ”¯æŒå¾—ä¸å¥½ã€‚
 
-ÁíÍâ£¬ÕâÀïµÄlog»úÖÆÊ¹ÓÃµÄÊÇslf4j+logback¡£
+å¦å¤–ï¼Œè¿™é‡Œçš„logæœºåˆ¶ä½¿ç”¨çš„æ˜¯slf4j+logbackã€‚
 
 
 
