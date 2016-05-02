@@ -36,7 +36,7 @@
 		<beans:property name="defaultViews">
 			<beans:list>
 				<beans:bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
-				
+				<beans:bean class="web.mvc.MyXmlView" />
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -61,7 +61,7 @@
 	
 	<context:annotation-config />
 	
-	<context:component-scan base-package="cmn1t,spr1t,p1t" />
+	<context:component-scan base-package="spr1t,spr2,p1t,web,web1" />
 
 	
 	
@@ -85,6 +85,8 @@
 	-->
 	
 	
+	
+	<beans:bean id="springStartFinishListener" class="web.mvc.SpringStartFinishListener" />
 	
 	
 	

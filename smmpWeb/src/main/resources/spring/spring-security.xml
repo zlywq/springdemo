@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Application context containing authentication, channel
+  - security and web URI beans.
+  -
+  - Only used by "filter" artifact.
+  -
+  -->
+
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!--
+	<http realm="Contacts Realm" use-expressions="false">
+		<custom-filter ref="switchUserProcessingFilter" position="SWITCH_USER_FILTER"/>
+	-->
+	<!--
+	<http use-expressions="false">	
+
+		<intercept-url pattern="/auth/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>		
+		<intercept-url pattern="/main/admin" access="ROLE_ADMIN"/>		
+		<intercept-url pattern="/main/common" access="ROLE_USER"/>
+		<intercept-url pattern="/**" access="ROLE_USER"/>
+
+		<form-login login-page="/auth/login" authentication-failure-url="/auth/login?error=true"/>
+		<http-basic/>		
+		<logout	logout-success-url="/auth/login" logout-url="/auth/logout" invalidate-session="true"/>
+		
+		<remember-me  data-source-ref="dataSource" token-validity-seconds="1209600" />
+		<headers/>
+		<csrf disabled="true"/>		
+	</http>
+		
+	<b:bean id="customUserDetailsService" class="sec1.service.CustomUserDetailsService"/>	
+	<b:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+	<authentication-manager>
+	        <authentication-provider user-service-ref="customUserDetailsService">
+	        		<password-encoder ref="passwordEncoder"/>
+	        </authentication-provider>
+	</authentication-manager>
+	-->
+	
+	<http use-expressions="false" entry-point-ref="AuthenticationEntryPoint1">	
+	
+
+		<intercept-url pattern="/nologin/*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/tmptest/*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+
+		<!-- TODO delete entry in prod mode -->
+		<intercept-url pattern="/logreg/infoNoLogin" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		
+		
+		<intercept-url pattern="/logreg/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>		
+		<intercept-url pattern="/logreg/reg*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		
+		
+		<intercept-url pattern="/**" access="ROLE_USER"/>
+
+		<!-- 
+		<form-login login-page="/logreg/login" authentication-failure-url="/logreg/login?error=true"/>
+		<custom-filter position="FORM_LOGIN_FILTER" ref="myLoginFilter"/>
+		-->
+		<form-login login-processing-url="/login" 
+			login-page="/logreg/login" authentication-failure-url="/logreg/login?error=true"
+			authentication-success-handler-ref="authSuccessHandler" authentication-failure-handler-ref="authFailureHandler"
+		/>
+		
+		<http-basic/>
+		
+		<!-- 
+		<logout	logout-success-url="/logreg/login" logout-url="/logreg/logout" invalidate-session="true"/>
+		<custom-filter position="LOGOUT_FILTER" ref="customLogoutFilter"/>
+    	-->
+    	<logout	logout-url="/logreg/logout" invalidate-session="true"
+			success-handler-ref="myLogoutSuccessHandler"
+		/>
+		
+		
+		<remember-me data-source-ref="dataSource" token-validity-seconds="1209600" />
+		
+		<headers/>
+		<csrf disabled="true"/>
+		<!-- 
+		<custom-filter ref="accessApiCheckFilter" after="PRE_AUTH_FILTER" />
+		-->
+	</http>
+	
+
+	<b:bean id="userDetailsService" class="web.sprsec.MyUserDetailsService"/>	
+	<b:bean id="myAuthenticationProvider"  class="web.sprsec.MyAuthenticationProvider">
+	</b:bean>  	
+	<authentication-manager alias="authenticationManager">
+	        <authentication-provider ref="myAuthenticationProvider" >
+	        </authentication-provider>
+	</authentication-manager>
+	
+	<!-- 可以防止出basic的那个验证框。以及处理未登录且需要登录的请求时有用 -->
+	<b:bean id="AuthenticationEntryPoint1"
+	    class="web.sprsec.MyAuthenticationEntryPoint">
+	    <b:constructor-arg>
+        	<b:value>/logreg/login</b:value>
+    	</b:constructor-arg>
+    	<!-- 
+    	<b:property name="loginFormUrl" value="/logreg/login" /> 
+    	<b:property name="forceHttps" value="false" />
+    	-->
+	</b:bean>
+	
+	<!-- 看来登录成功前用得到
+		filterProcessesUrl的值看来是spring security的login地址，目前是  /login 
+		即使使用了同样class的fileter，系统的配置和全custom的配置还是有差别。比如rememberMeServices是调试时猜测需要的。
+	<b:bean id="myLoginFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">  
+        <b:property name="authenticationManager" ref="authenticationManager"/>  
+        <b:property name="authenticationFailureHandler" ref="authFailureHandler"/>
+        <b:property name="authenticationSuccessHandler" ref="authSuccessHandler"/>
+
+        <b:property name="filterProcessesUrl" value="/login"/>
+    </b:bean>
+    -->
+    
+    
+    <b:bean id="authSuccessHandler" class="web.sprsec.MyAuthenticationSuccessHandler">
+    	<!-- 
+    	<b:property name="defaultTargetUrl" value="/"/>
+    	-->
+    </b:bean>
+    <b:bean id="authFailureHandler" class="web.sprsec.MyAuthenticationFailureHandler">
+    	<!--
+    	-->
+    	<b:property name="defaultFailureUrl" value="/logreg/login?error=true" /> 
+    </b:bean>
+    
+    <b:bean id="myLogoutSuccessHandler" class="web.sprsec.MyLogoutSuccessHandler">
+    	<b:property name="defaultTargetUrl" value="/logreg/login" /> 
+    </b:bean>
+    <!--
+    	SecurityContextLogoutHandler is according to spring-security-reference4.0.1.RELEASE.pdf Page 202 <logout> part 
+    	即使使用了同样class的fileter，系统的配置和全custom的配置还是有差别。比如persistentTokenRememberMeServices是调试时猜测需要的。
+    <b:bean id="customLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+    	<b:constructor-arg index="0" >
+    		<b:ref bean="myLogoutSuccessHandler" />
+    	</b:constructor-arg>
+    	<b:constructor-arg index="1">
+             <b:array>
+                <b:bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+             </b:array>
+         </b:constructor-arg>
+         <b:property name="filterProcessesUrl" value="/logreg/logout" />
+    </b:bean>
+    -->
+    
+    
+	
+	<b:bean id="accessApiCheckFilter" class="web.sprsec.AccessApiCheckFilter"/>
+
+	<!--
+	<b:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<authentication-manager>
+		<authentication-provider>
+		   <password-encoder ref="encoder"/>
+		   <jdbc-user-service data-source-ref="dataSource"/>
+		</authentication-provider>
+	</authentication-manager>
+	-->
+
+
+
+	<!-- Automatically receives AuthenticationEvent messages -->
+	<b:bean id="loggerListener" class="org.springframework.security.authentication.event.LoggerListener"/>
+
+
+
+	<!-- Filter used to switch the user context. Note: the switch and exit url must be secured
+		based on the role granted the ability to 'switch' to another user -->
+	<!-- In this example 'rod' has ROLE_SUPERVISOR that can switch to regular ROLE_USER(s) -->
+	<!--
+	<b:bean id="switchUserProcessingFilter" class="org.springframework.security.web.authentication.switchuser.SwitchUserFilter" autowire="byType">
+	   <b:property name="targetUrl" value="/secure/index.htm"/>
+	</b:bean>
+	
+	<global-method-security pre-post-annotations="enabled">
+		<expression-handler ref="expressionHandler"/>
+	</global-method-security>
+	
+	<b:bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+		<b:property name="permissionEvaluator" ref="permissionEvaluator"/>
+		<b:property name="permissionCacheOptimizer">
+			<b:bean class="org.springframework.security.acls.AclPermissionCacheOptimizer">
+				<b:constructor-arg ref="aclService"/>
+			</b:bean>
+		</b:property>
+	</b:bean>
+
+	<b:bean id="permissionEvaluator" class="org.springframework.security.acls.AclPermissionEvaluator">
+		<b:constructor-arg ref="aclService"/>
+	</b:bean>
+	-->
+
+</b:beans>

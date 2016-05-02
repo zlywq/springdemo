@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"       
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+     "
+	>
+       
+    <!--  看来spring aop和aspectj不能共存。至少是对同样的目标有问题。目前暂且未解决此问题。
+    <bean id="WebApiEnableStateBeforeAdvice1" class="web.mvc.WebApiBeforeCheckAdvice"
+    	autowire="byType" />
+	<bean id="RegexpMethodPointcutAdvisor1" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
+		>
+		<property name="advice">
+			<ref bean="WebApiEnableStateBeforeAdvice1"/>
+		</property>
+		<property name="patterns">
+			<list>
+				<value>web1\.controller\..*Controller\..*</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>*Controller</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>RegexpMethodPointcutAdvisor1</value>
+			</list>
+		</property>
+	</bean>
+	-->
+	
+	
+	
+	<!--  -->
+	<bean id="WebApiBeforeCheckByAspectJ1" class="web.mvc.WebApiBeforeCheckByAspectJ"
+    	autowire="byType" />
+    <bean id="WebApiAfterLogByAspectJ1" class="web.mvc.WebApiAfterLogByAspectJ"
+    	autowire="byType" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="pointcut1controller" expression="execution(* web1.controller.*Controller.*(..))"/>
+        <aop:aspect ref="WebApiBeforeCheckByAspectJ1">
+	    	<aop:before method="beforeMethod" pointcut-ref="pointcut1controller" />
+        </aop:aspect>
+        <!--  备用
+        <aop:aspect ref="WebApiAfterLogByAspectJ1">
+	    	<aop:after method="afterMethod" pointcut-ref="pointcut1controller" />
+        </aop:aspect>
+        -->
+    </aop:config>
+	
+	
+	
+	
+	
+	
+	
+   
+</beans>

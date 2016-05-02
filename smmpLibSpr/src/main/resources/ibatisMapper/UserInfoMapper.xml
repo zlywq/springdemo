@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spr2.ibatisMapper.UserInfoMapper">
+
+
+    
+    <select id="getByIdsWithDeleted" resultType="hhexpcn.kdServer.domain.UserInfo">
+        SELECT * FROM User
+        WHERE userId in <foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach>
+    </select>
+    
+    <select id="getByIds" resultType="hhexpcn.kdServer.domain.UserInfo">
+        SELECT * FROM User
+        WHERE isDeleted=0 AND userId in <foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach>
+    </select>
+    
+    <select id="getByIds_filterInMap" resultType="spr2.domain.UserInfo">
+        SELECT * FROM User
+        WHERE nickName=#{nickName} 
+            AND userId in <foreach item="item" index="index" collection="userIds" open="(" separator="," close=")">#{item}</foreach>
+    </select>
+    
+   
+
+</mapper>

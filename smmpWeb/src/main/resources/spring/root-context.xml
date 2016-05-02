@@ -14,8 +14,13 @@
 	
 	
 	<!--
-
+		
 	-->	
+		<import resource="classpath:spring/spring-cfg.xml" />
+		<import resource="classpath:spring/spring-backend.xml" />
+		<import resource="classpath:spring/spring-security.xml" />
+		
+		<import resource="classpath:spring/spring-aop.xml" />
 		
 		<import resource="classpath:spring/spring-front.xml" />
 </beans>

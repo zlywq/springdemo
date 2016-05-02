@@ -8,10 +8,24 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Home</title>
 	</head> 
 	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Click to enter</a>
+	
+	<P><a href="c1/info">c1-info</a> </P>
+
+
+
+
+	<P><a href="logreg/info">logreg/info</a></P>
+	
+	<br /><a href="post/getPosts">post list</a>
+	
+	
+	<br />
+	<a href="logreg/logout">登出</a>
+	<a href="logreg/logout?needJson=true">登出json</a>
+	
+	
 	</body>
 </html>
