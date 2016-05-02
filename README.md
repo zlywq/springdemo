@@ -1,3 +1,6 @@
+与 note.txt 内容完全相同，并且以 note.txt 为准。
+因为这里没有特意支持markdown格式，不一定同步更新。
+
 目前是一个最简单的例子。
 关键词: spring4 + spring security4 + mybatis3 + spring mvc
 在spring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64里面开发调试通过。一些环境是jdk1.7.0_75, apache-tomcat-7.0.63.
