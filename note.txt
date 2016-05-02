@@ -1,4 +1,4 @@
-目前是一个最简单的例子。
+这个例子的目标是达到入门并可以实用。
 关键词: spring4 + spring security4 + mybatis3 + spring mvc + junit4 , maven
 在spring-tool-suite-3.6.4.RELEASE-e4.4.2-win32-x86_64里面开发调试通过。一些环境是jdk1.7.0_75, apache-tomcat-7.0.63.
 在sts中可以以import -- existing maven project的方式导进来。
